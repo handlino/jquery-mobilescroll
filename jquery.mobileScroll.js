@@ -1,4 +1,8 @@
-$.fn.mobileScroll = function() {
+$.fn.mobileScroll = function(options) {
+    if (options.inertia == null) {
+        options.inertia = true
+    }
+
     this.live("touchstart", function(event) {
         $(this).clearQueue();
         event.preventDefault();
@@ -24,10 +28,14 @@ $.fn.mobileScroll = function() {
         var dt= Date.now() - $(this).data("t");
         $(this).data("s", parseInt(1000*dy/dt));
         return false;
-    }).live("touchend", function() {
-        var s = $(this).data("s");
-        $(this).animate({scrollTop: "+=" + s + "px", scrollLeft: "+=" + s + "px"}, 1000, "easeOutCirc");
     });
+
+    if (options.inertia) {
+        this.live("touchend", function() {
+            var s = $(this).data("s");
+            $(this).animate({scrollTop: "+=" + s + "px", scrollLeft: "+=" + s + "px"}, 1000, "easeOutCirc");
+        });
+    }
 
     return this;
 };
