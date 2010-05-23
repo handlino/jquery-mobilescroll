@@ -8,7 +8,8 @@
             .content { margin: 10px }
 
             #scroller-1,
-            #scroller-2 {
+            #scroller-2,
+            #scroller-3 {
                 background: #fff;;
                 width: 400px;
                 height: 400px;
@@ -51,6 +52,9 @@
                 text-decoration: none;
                 padding: 0 10px;
             }
+
+            #scroller-3 {width: 900px; height: 600px; }
+            #scroller-3 img { width: 2873px; height: 933px; }
         </style>
     </head>
     <body>
@@ -58,6 +62,11 @@
 
         <div id="scroller-1"><div class="content lipsum(100)"></div></div>
         <div id="scroller-2"><div class="content"></div></div>
+
+        <h2><a href="http://www.flickr.com/photos/imuttoo/256552156/">Ginza Panorama</a></h2>
+        <div id="scroller-3">
+            <img src="http://farm1.static.flickr.com/98/256552156_f3b987ddc2_o.jpg">
+        </div>
         
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script src="http://more.handlino.com/javascripts/moretext-1.1.js" type="text/javascript"></script>
@@ -71,6 +80,7 @@ $(function() {
 
     $("#scroller-1").mobileScroll();
     $("#scroller-2").mobileScroll();
+    $("#scroller-3").mobileScroll();
 });
         </script>
     </body>
