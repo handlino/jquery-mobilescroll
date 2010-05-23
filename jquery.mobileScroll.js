@@ -1,7 +1,9 @@
 $.fn.mobileScroll = function(options) {
-    if (options.inertia == null) {
-        options.inertia = true
-    }
+    if (options == null)
+        options = { };
+
+    if (options.inertia == null)
+        options.inertia = true;
 
     this.live("touchstart", function(event) {
         $(this).clearQueue();
@@ -30,7 +32,7 @@ $.fn.mobileScroll = function(options) {
         return false;
     });
 
-    if (options.inertia) {
+    if (!!options.inertia) {
         this.live("touchend", function() {
             var s = $(this).data("s");
             $(this).animate({scrollTop: "+=" + s + "px", scrollLeft: "+=" + s + "px"}, 1000, "easeOutCirc");
